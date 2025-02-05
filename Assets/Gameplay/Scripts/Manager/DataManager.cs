@@ -58,7 +58,10 @@ public static class DataManager
     }
     public static void SetMusicStatus(bool value)
     {
-        SoundManager.Instance!.BGMVolume(value);
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.BGMVolume(value);
+        }
 
         PlayerPrefs.SetInt(MUSIC, value? 1 : 0 );
     }
