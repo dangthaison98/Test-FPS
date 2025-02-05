@@ -3,6 +3,8 @@ using UnityEngine;
 public class MinimapFollowPlayer : MonoBehaviour
 {
     public int height;
+
+    public RectTransform directionIcon;
     
     private void Start()
     {
@@ -15,5 +17,8 @@ public class MinimapFollowPlayer : MonoBehaviour
         target = PlayerControl.Instance.transform.position;
         target.y = height;
         transform.position = target;
+        target = Vector3.zero;
+        target.z = -PlayerControl.Instance.transform.eulerAngles.y - 135;
+        directionIcon.eulerAngles = target;
     }
 }
