@@ -6,7 +6,7 @@ public class MinimapFollowPlayer : MonoBehaviour
     
     private void Start()
     {
-        LoopControl.instance.somethingUpdate += Follow;
+        LoopControl.Instance.somethingUpdate += Follow;
     }
 
     private Vector3 target;
