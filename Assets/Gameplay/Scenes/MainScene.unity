@@ -1164,18 +1164,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: 0
-  groundSpeed: 0
-  TouchSensitivityX: 0
-  TouchSensitivityY: 0
-  mouseSensitivity: 0
-  CinemachineCameraTarget: {fileID: 0}
+  groundSpeed: 5
+  TouchSensitivityX: 7
+  TouchSensitivityY: 5
+  mouseSensitivity: 1
+  CinemachineCameraTarget: {fileID: 8716007046834475212}
   _controller: {fileID: 8716007047624287806}
   handPos: {fileID: 0}
   joystick: {fileID: 4658368362878381432}
   movement: {x: 0, y: 0}
   pitch: 0
   bobSpeed: 10
-  bobAmount: {x: 0.15, y: 0.05}
+  bobAmount: {x: 0.05, y: 0.01}
   touchDelta: {x: 0, y: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
