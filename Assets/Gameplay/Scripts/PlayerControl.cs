@@ -30,7 +30,6 @@ public class PlayerControl : MonoBehaviour
     public FloatingJoystick joystick;
 
     [HideInInspector] public Vector2 movement;
-    private float sensitivity;
 
     private void Awake()
     {
@@ -82,8 +81,8 @@ public class PlayerControl : MonoBehaviour
     private void RotateCamera()
     {
         touchDelta = GetTouchXDelta();
-        pitch -= TouchSensitivityY * touchDelta.y * Time.deltaTime * sensitivity;
-        yaw = touchDelta.x * TouchSensitivityX * Time.deltaTime * sensitivity;
+        pitch -= TouchSensitivityY * touchDelta.y * Time.deltaTime;
+        yaw = touchDelta.x * TouchSensitivityX * Time.deltaTime;
 
         pitch = Mathf.Clamp(pitch, -70f, 70f);
 
