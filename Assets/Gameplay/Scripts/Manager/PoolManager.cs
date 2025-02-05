@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PoolManager : SingletonSingleScene<PoolManager>
 {
-    private readonly Dictionary<string, Queue<GameObject>> pool = new Dictionary<string, Queue<GameObject>>();
+    private readonly Dictionary<string, Queue<GameObject>> pool = new();
 
 
     #region Spawn
