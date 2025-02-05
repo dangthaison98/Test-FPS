@@ -56,6 +56,15 @@ public class PlayerControl : MonoBehaviour
         {
             RotateCameraPC();
         }
+        
+        //HeadBob();
+        
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+#endif
     }
 
     #region Control
