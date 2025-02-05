@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerControl : MonoBehaviour
 {
-        public static PlayerControl Instance;
+    public static PlayerControl Instance;
 
 #if UNITY_EDITOR
     [EnumToggleButtons]
@@ -22,7 +22,6 @@ public class PlayerControl : MonoBehaviour
     public float mouseSensitivity;
 
     private const string modelRotateTag = "ModelRotateUI";
-    private const float PickRange = 5;
     public GameObject CinemachineCameraTarget;
     public CharacterController _controller;
 
