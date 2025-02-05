@@ -10,5 +10,5 @@ public class SoundData : SerializedScriptableObject
 
 public enum SoundType
 {
-    
+    FootStep
 }
