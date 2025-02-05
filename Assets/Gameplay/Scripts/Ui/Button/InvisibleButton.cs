@@ -15,7 +15,7 @@ public class InvisibleButton : MonoBehaviour
 
     public void onClick()
     {
-        //Ads
+        //Reward Ads
         InvisibleMode();
         fillAmountEffect.fillSettings.settings.duration = duration;
         fillAmountEffect.Play();

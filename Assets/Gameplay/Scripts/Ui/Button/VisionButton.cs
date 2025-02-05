@@ -20,7 +20,7 @@ public class VisionButton : MonoBehaviour
 
     public void onClick()
     {
-        //Ads
+        //Reward Ads
         VisionMode();
         fillAmountEffect.fillSettings.settings.duration = duration;
         fillAmountEffect.Play();

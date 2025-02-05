@@ -14,7 +14,7 @@ public class ReloadButton : MonoBehaviour
     }
     public void onClick()
     {
-        //Ads
+        //Inter Ads
         reloadButton.interactable = false;
         //Reload
         fillAmountEffect.fillSettings.settings.duration = duration;
