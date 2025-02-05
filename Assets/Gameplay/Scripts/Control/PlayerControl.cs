@@ -134,14 +134,12 @@ public class PlayerControl : MonoBehaviour
             inputDirection = transform.right * movement.x + transform.forward * movement.y;
         }
         
-        //Jump
         _isGrounded = _controller.isGrounded;
 
         if (!_isGrounded)
         {
             heightControl.y += gravityValue * Time.deltaTime;
         }
-        //Jump
         
         _speed = targetSpeed;
 
