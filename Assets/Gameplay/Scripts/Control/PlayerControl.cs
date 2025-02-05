@@ -56,8 +56,6 @@ public class PlayerControl : MonoBehaviour
         {
             RotateCameraPC();
         }
-
-        HeadBob();
     }
 
     #region Control
@@ -106,7 +104,11 @@ public class PlayerControl : MonoBehaviour
 
     #region Movement
     private float _speed;
-
+    private Vector3 heightControl;
+    [Title("Jump")]
+    public float jumpHeight;
+    private const float gravityValue = -9.81f;
+    private bool _isGrounded;
     private void Movement()
     {
         float targetSpeed = groundSpeed;
@@ -114,24 +116,38 @@ public class PlayerControl : MonoBehaviour
 
         if (movement == Vector2.zero)
         {
-            // if (isWalking)
-            //     SoundManager.Instance.SoundFootStepPlayer.Active(false);
             isWalking = false;
             targetSpeed = 0.0f;
         }
         else
         {
-            // if (!isWalking)
-            //     SoundManager.Instance.SoundFootStepPlayer.Active(true);
             isWalking = true;
             inputDirection = transform.right * movement.x + transform.forward * movement.y;
         }
+        
+        //Jump
+        _isGrounded = _controller.isGrounded;
 
+        if (!_isGrounded)
+        {
+            heightControl.y += gravityValue * Time.deltaTime;
+        }
+        //Jump
+        
         _speed = targetSpeed;
 
         if (_controller.enabled)
-            _controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, -1, 0.0f) * Time.deltaTime);
+            _controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + heightControl * Time.deltaTime);
     }
+
+    public void Jump()
+    {
+        if (_isGrounded)
+        {
+            heightControl.y = Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+        }
+    }
+    
     [Title("Head Bob")]
     public float bobSpeed = 10f;
     private bool isWalking;
