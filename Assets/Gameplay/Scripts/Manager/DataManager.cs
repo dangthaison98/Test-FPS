@@ -46,7 +46,7 @@ public static class DataManager
     #region Sound 
     public static bool GetMusicStatus()
     {
-        return PlayerPrefs.GetInt(MUSIC,1)==1;
+        return PlayerPrefs.GetInt(MUSIC,1) == 1;
     }
     public static bool GetSoundStatus()
     {
@@ -58,15 +58,20 @@ public static class DataManager
     }
     public static void SetMusicStatus(bool value)
     {
-        PlayerPrefs.SetInt(MUSIC, value?1:0) ;
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.BGMVolume(value);
+        }
+
+        PlayerPrefs.SetInt(MUSIC, value? 1 : 0 );
     }
     public static void SetSoundStatus(bool value)
     {
-        PlayerPrefs.SetInt(SOUND,value ? 1 : 0) ;
+        PlayerPrefs.SetInt(SOUND,value ? 1 : 0 );
     }
     public static void SetVibrateStatus(bool value)
     {
-        PlayerPrefs.SetInt(VIBRATE,value ? 1 : 0);
+        PlayerPrefs.SetInt(VIBRATE,value ? 1 : 0 );
     }
     #endregion
 }

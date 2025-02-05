@@ -67,7 +67,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private void BGMVolume(bool haveSound)
+    public void BGMVolume(bool haveSound)
     {
         foreach (var _audio in tempAudioSources)
         {
