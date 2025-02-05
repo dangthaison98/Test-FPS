@@ -15,7 +15,7 @@ public static class Vibrator
     public static void Vibrate(long miliseconds)
     {
         if(!DataManager.GetVibrateStatus()) return;
-        
+#if !UNITY_EDITOR        
         if (IsAndroid())
         {
             vibrator.Call("vibrate", miliseconds);
@@ -24,6 +24,9 @@ public static class Vibrator
         {
             Handheld.Vibrate();
         }
+#else
+        Debug.Log("Vibrate");
+#endif
     }
 
     public static void Cancel()
