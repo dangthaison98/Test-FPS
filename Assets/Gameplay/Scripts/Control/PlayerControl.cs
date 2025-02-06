@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -31,6 +30,11 @@ public class PlayerControl : MonoBehaviour
 
     [HideInInspector] public Vector2 movement;
 
+    [Title("Weapon")]
+    public WeaponControl weapon;
+
+    private float countTimeAttack;
+    
     private void Awake()
     {
         Instance = this;
@@ -43,6 +47,7 @@ public class PlayerControl : MonoBehaviour
     {
         mainCam = Camera.main;
         jointOriginalPos = handPos.localPosition;
+        checkLayer = LayerMask.GetMask("Enemy", "Default");
     }
     private void LateUpdate()
     {
@@ -59,9 +64,19 @@ public class PlayerControl : MonoBehaviour
         }
         
         //HeadBob();
-        
-        Shoot();
-        
+        if (weapon)
+        {
+            if (countTimeAttack > 0)
+            {
+                countTimeAttack -= Time.deltaTime;
+            }
+            else
+            {
+                countTimeAttack = 1f / weapon.attackSpeed;
+                Shoot();
+            }
+        }
+
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -183,10 +198,10 @@ public class PlayerControl : MonoBehaviour
     #region Shoot
 
     private RaycastHit objectHit;
-    public LayerMask enemyLayer;
+    private LayerMask checkLayer;
     private void Shoot()
     {
-        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out objectHit, 10,enemyLayer))
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out objectHit, weapon.attackRange,checkLayer))
         {
             if (objectHit.collider.gameObject.layer == DataManager.EnemyLayer)
             {
