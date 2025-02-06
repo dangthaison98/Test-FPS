@@ -223,8 +223,7 @@ public class PlayerControl : MonoBehaviour
     private void CrosshairTrigger()
     {
         Tween.StopAll(onTarget: UIManager.instance.Crosshair.transform);
-        var time = Mathf.Clamp(countTimeAttack = 0.5f / weapon.attackSpeed, 0.1f, 0.5f);
-        Tween.Scale(UIManager.instance.Crosshair.transform, startValue: 1f, endValue: 1.2f, duration: time, cycles: 2, cycleMode: CycleMode.Yoyo);
+        Tween.Scale(UIManager.instance.Crosshair.transform, startValue: 1f, endValue: 1.5f, duration: 0.1f, cycles: 2, cycleMode: CycleMode.Yoyo);
     }
 
     #endregion
