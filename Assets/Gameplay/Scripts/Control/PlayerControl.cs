@@ -249,20 +249,20 @@ public class PlayerControl : MonoBehaviour
                 isIn = true;
             }
 
-            if (touch.phase == UnityEngine.TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began)
             {
                 lastMousePositionX = touch.position;
                 canRotate = true;
             }
 
-            if (touch.phase == UnityEngine.TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Ended)
             {
                 mouseMovementDelta = Vector2.zero;
                 isIn = false;
                 canRotate = false;
             }
 
-            if (touch.phase == UnityEngine.TouchPhase.Moved && canRotate)
+            if (touch.phase == TouchPhase.Moved && canRotate)
             {
                 mouseMovementDelta = touch.position - lastMousePositionX;
                 lastMousePositionX = touch.position;
