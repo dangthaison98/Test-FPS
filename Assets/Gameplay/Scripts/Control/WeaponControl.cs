@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -18,7 +19,16 @@ public class WeaponControl : MonoBehaviour
     
     public void Attack()
     {
-        
+        switch (type)
+        {
+            case WeaponType.Range:
+                PoolManager.Instance.Spawn("Bullet", bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+                break;
+            case WeaponType.Melee:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }  
     }
 }
 
