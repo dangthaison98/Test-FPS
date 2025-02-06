@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PrimeTween;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -72,7 +73,6 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                countTimeAttack = 1f / weapon.attackSpeed;
                 Shoot();
             }
         }
@@ -206,6 +206,8 @@ public class PlayerControl : MonoBehaviour
             if (objectHit.collider.gameObject.layer == DataManager.EnemyLayer)
             {
                 //Shoot
+                countTimeAttack = 1f / weapon.attackSpeed;
+                CrosshairTrigger();
             }
             else
             {
@@ -216,6 +218,13 @@ public class PlayerControl : MonoBehaviour
         {
             //Dont Shoot
         }
+    }
+
+    private void CrosshairTrigger()
+    {
+        Tween.StopAll(onTarget: UIManager.instance.Crosshair.transform);
+        var time = Mathf.Clamp(countTimeAttack = 0.5f / weapon.attackSpeed, 0.1f, 0.5f);
+        Tween.Scale(UIManager.instance.Crosshair.transform, startValue: 1f, endValue: 1.2f, duration: time, cycles: 2, cycleMode: CycleMode.Yoyo);
     }
 
     #endregion
