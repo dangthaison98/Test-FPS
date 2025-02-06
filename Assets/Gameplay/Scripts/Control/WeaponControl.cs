@@ -17,12 +17,13 @@ public class WeaponControl : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     
-    public void Attack()
+    public void Attack(bool isPlayer = false)
     {
         switch (type)
         {
             case WeaponType.Range:
-                PoolManager.Instance.Spawn("Bullet", bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+                var bullet = PoolManager.Instance.Spawn("Bullet", bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+                bullet.layer = LayerMask.NameToLayer(isPlayer ? "OnHand" : "Default");
                 break;
             case WeaponType.Melee:
                 break;

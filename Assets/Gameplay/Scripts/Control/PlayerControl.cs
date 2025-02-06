@@ -206,17 +206,10 @@ public class PlayerControl : MonoBehaviour
             if (objectHit.collider.gameObject.layer == DataManager.EnemyLayer)
             {
                 //Shoot
+                weapon.Attack(true);
                 countTimeAttack = 1f / weapon.attackSpeed;
                 CrosshairTrigger();
             }
-            else
-            {
-                //Dont Shoot
-            }
-        }
-        else
-        {
-            //Dont Shoot
         }
     }
 
