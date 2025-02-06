@@ -6,6 +6,10 @@ public static class DataManager
     private const string SOUND = "IsOnSound";
     private const string MUSIC = "IsOnMusic";
     private const string VIBRATE = "IsOnVibrate";
+
+
+    public static int EnemyLayer = LayerMask.NameToLayer("Enemy");
+    public static int AllyLayer = LayerMask.NameToLayer("Ally");
     
     
     #region  Coin

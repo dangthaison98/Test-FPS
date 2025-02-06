@@ -41,6 +41,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
+        mainCam = Camera.main;
         jointOriginalPos = handPos.localPosition;
     }
     private void LateUpdate()
@@ -181,9 +182,25 @@ public class PlayerControl : MonoBehaviour
 
     #region Shoot
 
+    private RaycastHit objectHit;
+    public LayerMask enemyLayer;
     private void Shoot()
     {
-        
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out objectHit, 10,enemyLayer))
+        {
+            if (objectHit.collider.gameObject.layer == DataManager.EnemyLayer)
+            {
+                //Shoot
+            }
+            else
+            {
+                //Dont Shoot
+            }
+        }
+        else
+        {
+            //Dont Shoot
+        }
     }
 
     #endregion

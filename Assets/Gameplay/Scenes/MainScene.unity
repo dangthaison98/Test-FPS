@@ -4998,7 +4998,7 @@ GameObject:
   - component: {fileID: 8716007047624287807}
   - component: {fileID: 8716007047624287809}
   - component: {fileID: 8716007047624287808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5057,6 +5057,9 @@ MonoBehaviour:
   jumpHeight: 1
   bobSpeed: 10
   bobAmount: {x: 0.05, y: 0.01}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 129
   touchDelta: {x: 0, y: 0}
 --- !u!114 &8716007047624287808
 MonoBehaviour:
