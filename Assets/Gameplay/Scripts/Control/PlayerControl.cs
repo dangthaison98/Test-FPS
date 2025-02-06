@@ -59,6 +59,8 @@ public class PlayerControl : MonoBehaviour
         
         //HeadBob();
         
+        Shoot();
+        
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -175,6 +177,15 @@ public class PlayerControl : MonoBehaviour
             handPos.localPosition = new Vector3(Mathf.Lerp(handPos.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(handPos.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), jointOriginalPos.z + Mathf.Sin(timer) * 0.05f);
         }
     }
+    #endregion
+
+    #region Shoot
+
+    private void Shoot()
+    {
+        
+    }
+
     #endregion
     
     #region Caculate

@@ -837,7 +837,7 @@ Camera:
     height: 1
   near clip plane: 0.2
   far clip plane: 500
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1569,7 +1569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 819697493}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -2170,7 +2170,7 @@ Camera:
     height: 1
   near clip plane: 0.2
   far clip plane: 500
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4504,6 +4504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f74d0e208dffe4d8d96e34ca4e2b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Crosshair: {fileID: 1647557922}
 --- !u!1 &2104219490
 GameObject:
   m_ObjectHideFlags: 0
@@ -4836,7 +4837,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 8716007046834475213}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.2
     FarClipPlane: 500
