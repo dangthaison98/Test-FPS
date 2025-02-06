@@ -64,7 +64,7 @@ public class PlayerControl : MonoBehaviour
             RotateCameraPC();
         }
         
-        //HeadBob();
+        HeadBob();
         if (weapon)
         {
             if (countTimeAttack > 0)
